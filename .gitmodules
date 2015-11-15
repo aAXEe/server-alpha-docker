@@ -21,4 +21,4 @@
 	url = https://github.com/OpenSeaMap/online_chart.git
 [submodule "webhook-docker"]
 	path = webhook-docker
-	url = https://github.com/OpenSeaMap/online_chart.git
+	url = https://github.com/aAXEe/webhook-docker.git
