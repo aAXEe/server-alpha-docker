@@ -1,0 +1,72 @@
+
+db:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: wiki
+    MYSQL_ROOT_PASSWORD: root
+  volumes_from:
+    - mysql-data
+
+forum:
+  build: fluxbb-docker
+  ports:
+    - "8080:80"
+  volumes_from:
+    - fluxbb-data
+  links:
+    - db
+  environment:
+    VIRTUAL_HOST: forum.oseam.local
+
+phpadmin:
+  image: corbinu/docker-phpmyadmin
+  environment:
+    MYSQL_PASSWORD: root
+    MYSQL_USERNAME: root
+  ports:
+    - "8081:80"
+  links:
+    - db:mysql
+  environment:
+    VIRTUAL_HOST: phpadmin.oseam.local
+
+wiki:
+  build: mediawiki-docker
+  ports:
+    - "8082:80"
+  volumes_from:
+    - mediawiki-data
+  links:
+    - db
+  environment:
+    VIRTUAL_HOST: wiki.oseam.local
+
+map:
+  build: map-docker
+  ports:
+    - "8083:80"
+  environment:
+    VIRTUAL_HOST: map.oseam.local
+  volumes:
+    - ./online_chart:/data
+
+webhook:
+  build: webhook-docker
+  ports:
+    - "8084:80"
+  environment:
+    VIRTUAL_HOST: webhook.oseam.local
+#    GHE_ADDRESS: 172.17.0.1
+    USE_PROXYFIX: "true"
+    DEBUG: "true"
+  volumes:
+    - ./github-webhook-handler:/usr/src/app
+    - ./repos.json:/data/repos.json
+    - /var/run/docker.sock:/var/run/docker.sock
+
+proxy:
+  build: nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock

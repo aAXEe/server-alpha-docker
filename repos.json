@@ -1,0 +1,9 @@
+{
+    "aAXEe/test-web": {
+        "key": "abc",
+        "action": [
+          ["echo", "test"],
+          ["docker.io", "ps"]
+        ]
+    }
+}

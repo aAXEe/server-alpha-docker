@@ -1,0 +1,24 @@
+[submodule "fluxbb-docker"]
+	path = fluxbb-docker
+	url = https://github.com/aAXEe/fluxbb-docker.git
+[submodule "github-webhook-handler"]
+	path = github-webhook-handler
+	url = https://github.com/aAXEe/github-webhook-handler.git
+[submodule "map-docker"]
+	path = map-docker
+	url = https://github.com/aAXEe/map-docker.git
+[submodule "mediawiki-docker"]
+	path = mediawiki-docker
+	url = https://github.com/aAXEe/mediawiki-docker.git
+[submodule "mysql-docker"]
+	path = mysql-docker
+	url = https://github.com/aAXEe/mysql-docker.git
+[submodule "nginx-proxy"]
+	path = nginx-proxy
+	url = https://github.com/aAXEe/nginx-proxy.git
+[submodule "online_chart"]
+	path = online_chart
+	url = https://github.com/OpenSeaMap/online_chart.git
+[submodule "webhook-docker"]
+	path = webhook-docker
+	url = https://github.com/OpenSeaMap/online_chart.git
