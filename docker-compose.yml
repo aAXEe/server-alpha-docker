@@ -16,7 +16,7 @@ forum:
   links:
     - db
   environment:
-    VIRTUAL_HOST: forum.oseam.local
+    VIRTUAL_HOST: forum.localhost
 
 phpadmin:
   image: corbinu/docker-phpmyadmin
@@ -28,7 +28,7 @@ phpadmin:
   links:
     - db:mysql
   environment:
-    VIRTUAL_HOST: phpadmin.oseam.local
+    VIRTUAL_HOST: phpadmin.localhost
 
 wiki:
   build: mediawiki-docker
@@ -39,14 +39,14 @@ wiki:
   links:
     - db
   environment:
-    VIRTUAL_HOST: wiki.oseam.local
+    VIRTUAL_HOST: wiki.localhost
 
 map:
   build: map-docker
   ports:
     - "8083:80"
   environment:
-    VIRTUAL_HOST: map.oseam.local
+    VIRTUAL_HOST: map.localhost
   volumes:
     - ./online_chart:/data
 
@@ -55,8 +55,7 @@ webhook:
   ports:
     - "8084:80"
   environment:
-    VIRTUAL_HOST: webhook.oseam.local
-#    GHE_ADDRESS: 172.17.0.1
+    VIRTUAL_HOST: webhook.localhost
     USE_PROXYFIX: "true"
     DEBUG: "true"
   volumes:

@@ -1,9 +1,24 @@
 {
-    "aAXEe/test-web": {
+    "aAXEe/test-web::push": {
         "key": "abc",
         "action": [
-          ["echo", "test"],
-          ["docker.io", "ps"]
+          ["echo", "push"],
+          ["echo", "full name: {full_name}"]
         ]
+    },
+    "aAXEe/test-web::pull_request": {
+        "key": "abc",
+        "action": [
+          ["echo", "pull_request number {issue_number}"],
+          ["docker.io", "run", "--detach=true",
+            "--publish=80",
+            "--env=VIRTUAL_HOST=map-{request_sha_short}-{random_string2}.localhost",
+            "--env=GIT_REPO={clone_url}",
+            "--env=GIT_CHECKOUT_COMMIT={request_sha}",
+            "--env=USE_AUTH=true", "--env=AUTH_USER=pull", "--env=AUTH_PASS={random_string}",
+            "openseamap/map-docker"
+          ]
+        ],
+        "bot_comment": ":whale: The preview for commit {request_sha} is online: <a href=\"http://pull:{random_string}@map-{request_sha_short}-{random_string2}.localhost\" target=\"_blank\">:anchor: click me :anchor:</a>"
     }
 }

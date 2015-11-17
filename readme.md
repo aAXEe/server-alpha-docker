@@ -3,6 +3,8 @@
 This repository bundles all docker containers and application code for the
 server alpha.openseamap.org.
 
+Have a look at the `docker-compose.yml` for the available containers and their relation to each other.
+
 # Setup
 
 After cloning this repository you have to setup the submodules:
@@ -37,3 +39,13 @@ can be used.
 
 All `*-docker/` submodules have a `.service` file. See the individual folders
  for details.
+
+# Access to data containers
+To get access to the data containers you can run an image with volumes from that
+container and with access to your local files:
+```
+docker run -it --volumes-from fluxbb-data -v $(pwd):/extern phusion/baseimage:0.9.16 /sbin/my_init -- bash
+```
+
+`phusion/baseimage:0.9.16` is the base image of the sub containers. It contains a
+ubuntu 14.04 for use in docker containers.
