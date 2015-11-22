@@ -1,9 +1,6 @@
 
 db:
-  image: mysql
-  environment:
-    MYSQL_DATABASE: wiki
-    MYSQL_ROOT_PASSWORD: root
+  build: mysql-docker
   volumes_from:
     - mysql-data
 
@@ -20,9 +17,6 @@ forum:
 
 phpadmin:
   image: corbinu/docker-phpmyadmin
-  environment:
-    MYSQL_PASSWORD: root
-    MYSQL_USERNAME: root
   ports:
     - "8081:80"
   links:
