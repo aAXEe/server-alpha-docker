@@ -8,5 +8,8 @@ docker run --name=mediawiki-data -v /data \
     openseamap/mediawiki-docker echo "data-only container for mediawiki"
 
 docker build --tag=openseamap/mysql-docker ./mysql-docker && \
-docker run --name=mysql-data -v /var/lib/mysql -e MYSQL_USER=mysql  \
-    openseamap/mysql-docker echo "data-only container for mysql"
+docker run --name=mysql-data -v /var/lib/mysql  \
+    openseamap/mysql-docker echo "data-only container for mysql" && \
+docker run --name=mysql --detach=false --rm=true --volumes-from=mysql-data --hostname=mysql \
+     -e MYSQL_USER=mysql \
+    openseamap/mysql-docker
