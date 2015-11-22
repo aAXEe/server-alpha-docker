@@ -25,3 +25,6 @@
 [submodule "tiles-docker"]
 	path = tiles-docker
 	url = https://github.com/aAXEe/tiles-docker.git
+[submodule "smtp-docker"]
+	path = smtp-docker
+	url = https://github.com/aAXEe/smtp-docker.git

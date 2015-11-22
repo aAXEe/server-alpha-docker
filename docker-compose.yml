@@ -1,3 +1,5 @@
+smtp:
+  build: smtp-docker
 
 db:
   build: mysql-docker
@@ -12,6 +14,7 @@ forum:
     - fluxbb-data
   links:
     - db
+    - smtp
   environment:
     VIRTUAL_HOST: forum.localhost
 
@@ -32,6 +35,7 @@ wiki:
     - mediawiki-data
   links:
     - db
+    - smtp
   environment:
     VIRTUAL_HOST: wiki.localhost
 
