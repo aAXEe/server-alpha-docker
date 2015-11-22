@@ -22,3 +22,6 @@
 [submodule "webhook-docker"]
 	path = webhook-docker
 	url = https://github.com/aAXEe/webhook-docker.git
+[submodule "tiles-docker"]
+	path = tiles-docker
+	url = https://github.com/aAXEe/tiles-docker.git
