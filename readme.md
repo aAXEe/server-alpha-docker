@@ -13,6 +13,10 @@ git submodule init
 git submodule update
 ```
 
+You will need the following software:
+* [Docker](http://docs.docker.com/engine/installation/)
+* [Docker Compose](http://docs.docker.com/compose/install/)
+
 ## Data-Containers
 Some images use data containers to store persistent data. To initialize them
 run the `create_all_data.sh` script.

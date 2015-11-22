@@ -61,7 +61,17 @@ webhook:
   volumes:
     - ./github-webhook-handler:/usr/src/app
     - ./repos.json:/data/repos.json
+    - ./github_token:/data/github_token
     - /var/run/docker.sock:/var/run/docker.sock
+
+tiles:
+  build: tiles-docker
+  ports:
+    - "8085:80"
+  environment:
+    VIRTUAL_HOST: tiles.localhost
+  volumes:
+    - /home/axel/Condor/alpha.openseamap.org/t1/tiles:/data
 
 proxy:
   build: nginx-proxy
