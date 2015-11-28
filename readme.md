@@ -48,8 +48,15 @@ All `*-docker/` submodules have a `.service` file. See the individual folders
 To get access to the data containers you can run an image with volumes from that
 container and with access to your local files:
 ```
-docker run -it --volumes-from fluxbb-data -v $(pwd):/extern phusion/baseimage:0.9.16 /sbin/my_init -- bash
+docker run --rm=true -it --link mysql:db --volumes-from fluxbb-data -v $(pwd):/extern openseamap/fluxbb-docker /sbin/my_init -- bash
 ```
 
 `phusion/baseimage:0.9.16` is the base image of the sub containers. It contains a
 ubuntu 14.04 for use in docker containers.
+
+## PhpMyAdmin
+
+To use phpmyadmin to control the database:
+```
+docker run --rm=true --link mysql:mysql -e MYSQL_USERNAME=mysql -e MYSQL_PASSWORD=abcdef --name phpmyadmin -p 9001:80 corbinu/docker-phpmyadmin
+```
