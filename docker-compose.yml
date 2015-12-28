@@ -16,7 +16,7 @@ forum:
     - db
     - smtp
   environment:
-    VIRTUAL_HOST: forum.localhost
+    VIRTUAL_HOST: forum.*
 
 phpadmin:
   image: corbinu/docker-phpmyadmin
@@ -25,7 +25,7 @@ phpadmin:
   links:
     - db:mysql
   environment:
-    VIRTUAL_HOST: phpadmin.localhost
+    VIRTUAL_HOST: phpadmin.*
 
 wiki:
   build: mediawiki-docker
@@ -37,14 +37,14 @@ wiki:
     - db
     - smtp
   environment:
-    VIRTUAL_HOST: wiki.localhost
+    VIRTUAL_HOST: wiki.*
 
 map:
   build: map-docker
   ports:
     - "8083:80"
   environment:
-    VIRTUAL_HOST: map.localhost
+    VIRTUAL_HOST: map.*
   volumes:
     - ./online_chart:/data
 
@@ -53,7 +53,7 @@ webhook:
   ports:
     - "8084:80"
   environment:
-    VIRTUAL_HOST: webhook.localhost
+    VIRTUAL_HOST: webhook.*
     USE_PROXYFIX: "true"
     DEBUG: "true"
   volumes:
@@ -67,7 +67,7 @@ tiles:
   ports:
     - "8085:80"
   environment:
-    VIRTUAL_HOST: tiles.localhost
+    VIRTUAL_HOST: tiles.*,t1.*
   volumes:
     - /home/axel/Condor/alpha.openseamap.org/t1/tiles:/data
 
