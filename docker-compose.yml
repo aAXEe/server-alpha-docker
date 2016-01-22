@@ -42,11 +42,12 @@ wiki:
 map:
   build: map-docker
   ports:
-    - "8083:80"
+    - "8090:80"
   environment:
     VIRTUAL_HOST: map.*
   volumes:
     - ./online_chart:/data
+    - ./map_footer:/data/classes/footer.inc
 
 webhook:
   build: webhook-docker
@@ -69,7 +70,7 @@ tiles:
   environment:
     VIRTUAL_HOST: tiles.*,t1.*
   volumes:
-    - /home/axel/Condor/alpha.openseamap.org/t1/tiles:/data
+    - ../tiles:/data
 
 proxy:
   build: nginx-proxy
