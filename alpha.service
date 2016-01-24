@@ -1,0 +1,10 @@
+[Unit]
+Description=Alpha Webservices
+Wants=fluxbb.service map.service tiles.service reverse-proxy.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/echo "Services for Alpha are requested to run."
+
+[Install]
+WantedBy=multi-user.target
