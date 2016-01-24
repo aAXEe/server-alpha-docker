@@ -44,6 +44,15 @@ can be used.
 All `*-docker/` submodules have a `.service` file. See the individual folders
  for details.
 
+The service `alpha.service` has a weak dependency to all web services.
+Use `systemctl start alpha.service` to start all relevant containers.
+
+# Update Containers
+
+To pull new containers from the docker hub, run `systemctl reload <abc>.service`
+for the relevant service.  
+As a wrapper you can call `./update_container.sh`.
+
 # Access to data containers
 To get access to the data containers you can run an image with volumes from that
 container and with access to your local files:
