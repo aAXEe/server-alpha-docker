@@ -49,6 +49,16 @@ map:
     - ./online_chart:/data
     - ./map_footer:/data/classes/footer.inc
 
+mapproxy:
+  build: mapproxy-docker
+  ports:
+    - "8095:8080"
+  hostname: mapproxy-docker
+  environment:
+    VIRTUAL_HOST: mapproxy.*
+  volumes:
+    - ./mapproxy:/mapproxy
+
 webhook:
   build: webhook-docker
   ports:

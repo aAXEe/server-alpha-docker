@@ -1,0 +1,45 @@
+
+services:
+  demo:
+  tms:
+    use_grid_names: true
+    # origin for /tiles service
+    origin: 'nw'
+  kml:
+      use_grid_names: true
+  wmts:
+  wms:
+    md:
+      title: MapProxy WMS Proxy
+      abstract: This is a minimal MapProxy example.
+
+layers:
+  - name: osm
+    title: OpenStreetMap base layer
+    sources: [osm_cache_base]
+  - name: seamarks
+    title: OpenSeaMap Seamarks
+    sources: [osm_cache_seamarks]
+
+caches:
+  osm_cache_seamarks:
+    sources: [osm_seamarks]
+    link_single_color_images: true
+    grids: [GLOBAL_WEBMERCATOR]
+  osm_cache_base:
+    sources: [osm_source_base]
+    grids: [GLOBAL_WEBMERCATOR]
+
+sources:
+  osm_seamarks:
+    type: tile
+    grid: GLOBAL_WEBMERCATOR
+    url: http://t1.openseamap.org/seamark/%(z)s/%(x)s/%(y)s.png
+    transparent: true
+  osm_source_base:
+    type: tile
+    grid: GLOBAL_WEBMERCATOR
+    url: http://a.tile.openstreetmap.org/%(z)s/%(x)s/%(y)s.png
+
+
+globals:

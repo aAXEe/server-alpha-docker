@@ -8,3 +8,4 @@ docker build --tag=openseamap/nginx-proxy ./nginx-proxy
 docker build --tag=openseamap/tiles-docker ./tiles-docker
 docker build --tag=openseamap/webhook-docker ./webhook-docker
 docker build --tag=openseamap/smtp-docker ./smtp-docker
+docker build --tag=openseamap/mapproxy-docker ./mapproxy-docker

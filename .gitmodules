@@ -28,3 +28,6 @@
 [submodule "smtp-docker"]
 	path = smtp-docker
 	url = https://github.com/aAXEe/smtp-docker.git
+[submodule "mapproxy-docker"]
+	path = mapproxy-docker
+	url = https://github.com/aAXEe/mapproxy-docker.git
