@@ -25,21 +25,25 @@ caches:
   osm_cache_seamarks:
     sources: [osm_seamarks]
     link_single_color_images: true
-    grids: [GLOBAL_WEBMERCATOR]
+    grids: [osm_grid]
   osm_cache_base:
     sources: [osm_source_base]
-    grids: [GLOBAL_WEBMERCATOR]
+    grids: [osm_grid]
 
 sources:
   osm_seamarks:
     type: tile
-    grid: GLOBAL_WEBMERCATOR
+    grid: osm_grid
     url: http://t1.openseamap.org/seamark/%(z)s/%(x)s/%(y)s.png
     transparent: true
   osm_source_base:
     type: tile
-    grid: GLOBAL_WEBMERCATOR
+    grid: osm_grid
     url: http://a.tile.openstreetmap.org/%(z)s/%(x)s/%(y)s.png
 
+
+grids:
+  osm_grid:
+    base: GLOBAL_WEBMERCATOR
 
 globals:
