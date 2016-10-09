@@ -1,6 +1,3 @@
-smtp:
-  build: smtp-docker
-
 db:
   build: mysql-docker
   volumes_from:
@@ -26,18 +23,6 @@ phpadmin:
     - db:mysql
   environment:
     VIRTUAL_HOST: phpadmin.*
-
-wiki:
-  build: mediawiki-docker
-  ports:
-    - "8082:80"
-  volumes_from:
-    - mediawiki-data
-  links:
-    - db
-    - smtp
-  environment:
-    VIRTUAL_HOST: wiki.*
 
 map:
   build: map-docker

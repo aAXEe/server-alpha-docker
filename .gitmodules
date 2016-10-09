@@ -7,9 +7,6 @@
 [submodule "map-docker"]
 	path = map-docker
 	url = https://github.com/aAXEe/map-docker.git
-[submodule "mediawiki-docker"]
-	path = mediawiki-docker
-	url = https://github.com/aAXEe/mediawiki-docker.git
 [submodule "mysql-docker"]
 	path = mysql-docker
 	url = https://github.com/aAXEe/mysql-docker.git
@@ -25,9 +22,6 @@
 [submodule "tiles-docker"]
 	path = tiles-docker
 	url = https://github.com/aAXEe/tiles-docker.git
-[submodule "smtp-docker"]
-	path = smtp-docker
-	url = https://github.com/aAXEe/smtp-docker.git
 [submodule "mapproxy-docker"]
 	path = mapproxy-docker
 	url = https://github.com/aAXEe/mapproxy-docker.git

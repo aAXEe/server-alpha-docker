@@ -60,8 +60,8 @@ container and with access to your local files:
 docker run --rm=true -it --link mysql:db --volumes-from fluxbb-data -v $(pwd):/extern openseamap/fluxbb-docker /sbin/my_init -- bash
 ```
 
-`phusion/baseimage:0.9.16` is the base image of the sub containers. It contains a
-ubuntu 14.04 for use in docker containers.
+`phusion/baseimage:0.9.19` is the base image of the sub containers. It contains a
+ubuntu 16.04 for use in docker containers.
 
 ## PhpMyAdmin
 
